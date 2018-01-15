@@ -1,0 +1,222 @@
+{% extends "pages/wrapper.html" %}
+{% block content %}
+{% load static %}
+
+        <!-- <h1>{{ obj }}</h1>
+        {% for i in obj.images.all %}
+            {{ i.image.url }}
+        <img src="{{ i.image.url }}" />
+        {% endfor %}
+        {{ obj.img.url }} -->
+
+{% for obj in post_objects %}
+<div data-fancybox data-src="#modal-posts-{{obj.id}}" href="javascript:;" id="post-{{obj.id}}" class="TVHotTourContainer TVHotContainer-ES TVViewSquare" style="margin-bottom: 10px; border-width: 1px;">
+  <div class="TVHotMainColor-ES" style="width: 328px;">
+     <div class="TVHotTour">
+        <div class="TVHotTourImageWrap">
+           <div class="TVHotTourImage" style="background-image: url({{ obj.photo.url }}); height: 150px;"></div>
+        </div>
+       {% if obj.skidka %}
+         <div class="TVHotTourDiscount">
+              {{obj.skidka}}
+         </div>
+       {% endif %}
+        <div class="TVHotTourInfo">
+           <div class="TVHotTourInfoHotelStars">
+             <script>
+             var count = {{obj.star}}
+             for (i = 0; i < count; i++) {
+               document.write("<div class='TVHotStar-ES'></div>");
+             }
+             </script>
+           </div>
+           <div class="TVHotTourInfoHotelName">{{obj.title}}</div>
+           <div>
+              <div class="TVHotTourInfoResort">{{obj.city}}</div>
+              <div class="TVHotTourInfoCountry">{{obj.country}}</div>
+           </div>
+           <div class="TVHotTourInfoDateNight">{{obj.date_night}}</div>
+           <div class="TVHotTourInfoDeparture">{{obj.vilet}}</div>
+           <div class="TVHotTourInfoPriceContainer">
+              {% if obj.first_cena %}
+              <div class="TVHotTourInfoOldPrice">
+                   {{obj.first_cena}}
+              </div>
+              {% endif %}
+              <div class="TVHotTourInfoPriceBlock">
+                 <div class="TVHotTourInfoNewPrice">{{obj.last_cena}}</div>
+                 <div class="TVHotTourInfoPriceIcon"></div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+<!-- FULL POST -->
+<div style="width:940px; display: none" class="TVOrderWindow" id="modal-posts-{{obj.id}}">
+<div class="">
+   <div class="TVOrderHotelBlock">
+      <div class="TVOrderHotelName"><span>{{obj.title}}</span></div>
+      <div class="TVOrderHotelStarWrap">
+        <script>
+        var count = {{obj.star}}
+        for (i = 0; i < count; i++) {
+          document.write("<div class='TVOrderHotelStar'></div>");
+        }
+        </script>
+      </div>
+      <div class="TVOrderHotelRegion">
+         <div class="TVOrderHotelRegionLabel">{{obj.country}}, {{obj.city}}</div>
+      </div>
+      <div class="TVOrderTourInfo">
+         <div style="position: relative;">
+            <div class="TVOrderTourDetail">
+               <div class="TVOrderTourDetailColumn1">
+                  <div class="TVOrderTourDetailText TVOrderTourDeparute">из {{obj.vilet}}</div>
+                  <div class="TVOrderTourDetailText TVOrderTourDate">{{obj.date_night}}</div>
+                  <div class="TVOrderTourDetailText TVOrderTourMeal">{{obj.tour_meal}}</div>
+               </div>
+               <div class="TVOrderTourDetailColumn2">
+                  <div class="TVOrderTourDetailText TVOrderTourRoom">{{obj.tour_room}}</div>
+                  <div class="TVOrderTourDetailText TVOrderTourPlace">{{obj.persons}}</div>
+                  <div class="TVOrderTourDetailText TVOrderTourProgramm">Программа тура: {{obj.program_tura}}</div>
+               </div>
+            </div>
+            <div class="TVOrderTourPriceBlock">
+               <div class="TVOrderTourPrice">{{obj.last_cena}}</div>
+               <div class="TVNavPrice TVOrderButton TVCatNavPrice TVOrderContinue"></div>
+            </div>
+            <div class="TVOrderCart"></div>
+         </div>
+      </div>
+   </div>
+   <div class="TVCatNav">
+      <div class="TVNavDesc TVCatNavButton TVCatNavDesc TVCatNavActive">Описание</div>
+      <div class="TVNavPhoto TVCatNavButton TVCatNavPhoto">Фото</div>
+      <div class="TVNavPrice TVCatNavButton TVCatNavPrice">Запрос</div>
+   </div>
+   <div class="TVCatDetail">
+      <div class="TVLayerSwitch">
+        <!-- НАЧАЛО ТАБА -->
+         <div class="TVNavDesc TVCatAboutHotel">
+            <div class="TVCatAboutHotelBlock">
+               <div class="TVSimpleImageSlider">
+                  <div class="TVSimpleImageSliderRoot TVSimpleSlidePic" style="background-image: url({{ obj.photo.url }}); width: 100%;"></div>
+               </div>
+               <div>
+                  {% if obj.comments %}
+                  <div class="TVCatHotelDescBlock">
+                     <div class="TVCatHotelDescHeader">Комментарии наших менеджеров:</div>
+                     <div class="TVCatHotelDescText">{{obj.comments}}</div>
+                  </div>
+                  {% endif %}
+                  {% if obj.common_info %}
+                  <div class="TVCatHotelDescBlock">
+                     <div class="TVCatHotelDescHeader">Общая информация:</div>
+                     <div class="TVCatHotelDescText">{{obj.common_info}}</div>
+                  </div>
+                  {% endif %}
+                  {% if obj.territory %}
+                  <div class="TVCatHotelDescBlock">
+                     <div class="TVCatHotelDescHeader">Территория отеля:</div>
+                     <div class="TVCatHotelDescText">{{obj.territory}}</div>
+                  </div>
+                  {% endif %}
+                  {% if obj.in_hotel %}
+                  <div class="TVCatHotelDescBlock">
+                     <div class="TVCatHotelDescHeader">В номере:</div>
+                     <div class="TVCatHotelDescText">{{obj.in_hotel}}</div>
+                  </div>
+                  {% endif %}
+                  {% if obj.services %}
+                  <div class="TVCatHotelDescBlock">
+                     <div class="TVCatHotelDescHeader">Услуги:</div>
+                     <div class="TVCatHotelDescText">{{obj.services}}</div>
+                  </div>
+                  {% endif %}
+                  {% if obj.free_services %}
+                  <div class="TVCatHotelDescBlock">
+                     <div class="TVCatHotelDescHeader">Бесплатные услуги:</div>
+                     <div class="TVCatHotelDescText">{{obj.free_services}}</div>
+                  </div>
+                  {% endif %}
+                  {% if obj.pay_services %}
+                  <div class="TVCatHotelDescBlock">
+                     <div class="TVCatHotelDescHeader">Платные услуги:</div>
+                     <div class="TVCatHotelDescText">{{obj.pay_services}}</div>
+                  </div>
+                  {% endif %}
+                  {% if obj.for_children %}
+                  <div class="TVCatHotelDescBlock">
+                     <div class="TVCatHotelDescHeader">Для детей:</div>
+                     <div class="TVCatHotelDescText">{{obj.for_children}}</div>
+                  </div>
+                  {% endif %}
+                  {% if obj.type_hotel %}
+                  <div class="TVCatHotelDescBlock">
+                     <div class="TVCatHotelDescHeader">Типы номеров:</div>
+                     <div class="TVCatHotelDescText">{{obj.type_hotel}}</div>
+                  </div>
+                  {% endif %}
+                  {% if obj.beach %}
+                  <div class="TVCatHotelDescBlock">
+                     <div class="TVCatHotelDescHeader">Пляж:</div>
+                     <div class="TVCatHotelDescText">{{obj.beach}}</div>
+                  </div>
+                  {% endif %}
+                  {% if obj.concept_food %}
+                  <div class="TVCatHotelDescBlock">
+                     <div class="TVCatHotelDescHeader">Концепция питания:</div>
+                     <div class="TVCatHotelDescText">{{obj.concept_food}}</div>
+                  </div>
+                  {% endif %}
+               </div>
+            </div>
+            <div class="TVCatAboutHotelRightSidebar">
+               <div class="TVCatHotelTypeBlock">
+                  <div class="TVCatHotelTypeItem TVCatHotelTypeActive">{{obj.type_otdyh}}</div>
+               </div>
+            </div>
+         </div>
+       <!-- Конец таба -->
+       <!-- НАЧАЛО ТАБА -->
+        <div class="TVNavPhoto TVCatAboutHotel TVHide">
+          <div style="overflow: hidden;">
+           {% for i in obj.images.all %}
+             <img src="{{ i.image.url }}" width="423"/>
+           {% endfor %}
+           </div>
+        </div>
+      <!-- Конец таба -->
+       <!-- НАЧАЛО ТАБА -->
+         <div id="TVNavPrice-url" class="TVNavPrice TVCatAboutHotel TVHide TVForHeader TVOrderFormHeader TVOrderFormArea">
+           <form action="" method="post">
+             <div style="position: relative;">
+               <div class="TVOrderRequestForm">
+                  <div class="TVOrderInputBlock TVOrderRequestBlock">
+                     <input type="hidden" value="Запрос на доп. информацию - {{obj.title}}" placeholder="Ваше имя" size="24">
+                     <div class="TVInput TVBigInput"><input type="" placeholder="Ваше имя" size="24" required></div>
+                     <div class="TVInput TVBigInput TVOrderEmail"><input type="email" placeholder="Ваш e-mail" size="24" required></div>
+                     <div class="TVInput TVBigInput"><input class="telephonetext" type="" placeholder="Ваш телефон" size="24" required></div>
+                  </div>
+               </div>
+               <div class="TVOrderInline500">
+                  <div class="TVContract">
+                     <div class="TVContractText"></div>
+                     <a target="_blank" href="{% static '/pages/politic.html' %}"><div class="TVContractLink"></div></a>
+                  </div>
+                  <div class="TVOrderRequestButtonBlock">
+                     <button class="TVOrderButton TVOrderRequestSubmit"></button>
+                  </div>
+               </div>
+             </div>
+           </form>
+         </div>
+      <!-- Конец таба -->
+      </div>
+   </div>
+</div>
+</div>
+<!-- END FULL POST -->
+{% endfor %}
+{% endblock %}
