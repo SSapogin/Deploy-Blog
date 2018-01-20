@@ -1,14 +1,6 @@
 {% extends "pages/wrapper.html" %}
 {% block content %}
 {% load static %}
-
-        <!-- <h1>{{ obj }}</h1>
-        {% for i in obj.images.all %}
-            {{ i.image.url }}
-        <img src="{{ i.image.url }}" />
-        {% endfor %}
-        {{ obj.img.url }} -->
-
 {% for obj in post_objects %}
 <div data-fancybox data-src="#modal-posts-{{obj.id}}" href="javascript:;" id="post-{{obj.id}}" class="TVHotTourContainer TVHotContainer-ES TVViewSquare" style="margin-bottom: 10px; border-width: 1px;">
   <div class="TVHotMainColor-ES" style="width: 328px;">
@@ -190,14 +182,11 @@
       <!-- Конец таба -->
        <!-- НАЧАЛО ТАБА -->
          <div id="TVNavPrice-url" class="TVNavPrice TVCatAboutHotel TVHide TVForHeader TVOrderFormHeader TVOrderFormArea">
-           <form action="" method="post">
+           <form action="/contact-3/" method="post">
              <div style="position: relative;">
                <div class="TVOrderRequestForm">
                   <div class="TVOrderInputBlock TVOrderRequestBlock">
-                     <input type="hidden" value="Запрос на доп. информацию - {{obj.title}}" placeholder="Ваше имя" size="24">
-                     <div class="TVInput TVBigInput"><input type="" placeholder="Ваше имя" size="24" required></div>
-                     <div class="TVInput TVBigInput TVOrderEmail"><input type="email" placeholder="Ваш e-mail" size="24" required></div>
-                     <div class="TVInput TVBigInput"><input class="telephonetext" type="" placeholder="Ваш телефон" size="24" required></div>
+                     <div class="form-3"></div>
                   </div>
                </div>
                <div class="TVOrderInline500">
@@ -206,7 +195,7 @@
                      <a target="_blank" href="{% static '/pages/politic.html' %}"><div class="TVContractLink"></div></a>
                   </div>
                   <div class="TVOrderRequestButtonBlock">
-                     <button class="TVOrderButton TVOrderRequestSubmit"></button>
+                     <button type="submit" class="TVOrderButton TVOrderRequestSubmit"></button>
                   </div>
                </div>
              </div>

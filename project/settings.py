@@ -25,11 +25,13 @@ SECRET_KEY = 'gfs4yg(x=_&=dip-g8wub%p$3nz)d(&2i&#-wmonc@x_p&^v&t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    #  'www.ssapogin.pythonanywhere.com',
+    # 'ssapogin.pythonanywhere.com'
+]
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'pages',
     'django.contrib.admin',
@@ -128,9 +130,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
 
 # Настройки почтового сервера
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "kamelot.sapogin@gmail.com"
+EMAIL_HOST_PASSWORD = 'bvbeaabkclyzcbfs'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.mail.ru' #Например, smtp.gmail.com
-EMAIL_HOST_USER = 'serega_s98@mail.ru' #Например, user@gmail.com. Именно его необходимо указывать как ВАШ_EMAIL_ДЛЯ_ОТПРАВКИ_СООБЩЕНИЯ в исходном коде предыдущего пункта
-EMAIL_HOST_PASSWORD = 'sSad09rNQ53'
-EMAIL_PORT = 465
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

@@ -5,7 +5,7 @@ import datetime
 from xml.etree import ElementTree as ET
 from pages.models import posts
 from django.core.mail import send_mail, BadHeaderError
-from pages.forms import ContactForm
+from pages.forms import *
 
 def dollar_evro(request):
     id_dollar = "R01235"
@@ -28,7 +28,6 @@ def post_go(request):
     context = {"post_objects" : all_post}
     return render(request, "pages/post.html", context)
 
-
 def contactView(request):
 	if request.method == 'POST':
 		form = ContactForm(request.POST)
@@ -38,14 +37,20 @@ def contactView(request):
 			sender = form.cleaned_data['sender']
 			phone = form.cleaned_data['phone']
 			message = form.cleaned_data['message']
-			copy = form.cleaned_data['copy']
 
-			recipients = ['serega_s98@mail.ru']
-			#Если пользователь захотел получить копию себе, добавляем его в список получателей
-			if copy:
-				recipients.append(sender)
+			from_send = form.cleaned_data['from_send']
+			to_send = form.cleaned_data['to_send']
+			date_start = form.cleaned_data['date_start']
+			date_finish = form.cleaned_data['date_finish']
+			night = form.cleaned_data['night']
+			adults = form.cleaned_data['adults']
+			child = form.cleaned_data['child']
+
+			recipients = ['kamelot.sapogin@gmail.com']
 			try:
-				send_mail(subject, message, 'serega_s98@mail.ru', recipients)
+				send_mail('Заявка - ' + subject, 'Телефон:' + phone + '\nE-mail: ' + sender + '\nКомментарий: ' + message +
+                '\n\nБлок горящих туров:\nОткуда: ' + from_send + '\nКуда: ' + to_send + '\nДаты вылета: ' + date_start + ' по ' + date_finish +
+                '\nНочей: ' + night + '\nВзрослых: ' + adults + '\nДетей: ' + child, 'kamelot.sapogin@gmail.com', recipients)
 			except BadHeaderError: #Защита от уязвимости
 				return HttpResponse('Invalid header found')
 			#Переходим на другую страницу, если сообщение отправлено
@@ -55,3 +60,73 @@ def contactView(request):
 		form = ContactForm()
 	#Отправляем форму на страницу
 	return render(request, 'pages/contact.html', {'form': form})
+
+def contactView1(request):
+	if request.method == 'POST':
+		form = ContactForm_num1(request.POST)
+		if form.is_valid():
+			subject = form.cleaned_data['subject']
+			phone = form.cleaned_data['phone']
+			recipients = ['kamelot.sapogin@gmail.com']
+			try:
+				send_mail('Обратный звонок - ' + subject, phone, 'kamelot.sapogin@gmail.com', recipients)
+			except BadHeaderError:
+				return HttpResponse('Invalid header found')
+			return render(request, 'pages/thanks.html')
+	else:
+		form = ContactForm_num1()
+	return render(request, 'pages/contact1.html', {'form': form})
+
+def contactView2(request):
+	if request.method == 'POST':
+		form = ContactForm_num2(request.POST)
+		if form.is_valid():
+			subject = form.cleaned_data['subject']
+			sender = form.cleaned_data['sender']
+			phone = form.cleaned_data['phone']
+			recipients = ['kamelot.sapogin@gmail.com']
+			try:
+				send_mail('Запрос на информацию по туру - ' + subject, 'E-mail: ' + sender + '\nТелефон:' + phone, 'kamelot.sapogin@gmail.com', recipients)
+			except BadHeaderError:
+				return HttpResponse('Invalid header found')
+			return render(request, 'pages/thanks.html')
+	else:
+		form = ContactForm_num2()
+	return render(request, 'pages/contact2.html', {'form': form})
+
+def contactView3(request):
+	if request.method == 'POST':
+		form = ContactForm_num3(request.POST)
+		if form.is_valid():
+			subject = form.cleaned_data['subject']
+			sender = form.cleaned_data['sender']
+			phone = form.cleaned_data['phone']
+			recipients = ['kamelot.sapogin@gmail.com']
+			try:
+				send_mail('Оформление визы - ' + subject, 'E-mail: ' + sender + '\nТелефон:' + phone, 'kamelot.sapogin@gmail.com', recipients)
+			except BadHeaderError:
+				return HttpResponse('Invalid header found')
+			return render(request, 'pages/thanks.html')
+	else:
+		form = ContactForm_num3()
+	return render(request, 'pages/contact3.html', {'form': form})
+
+def contactView4(request):
+	if request.method == 'POST':
+		form = ContactForm_num4(request.POST)
+		if form.is_valid():
+			star = form.cleaned_data['star']
+			country = form.cleaned_data['country']
+			date_date = form.cleaned_data['date_date']
+			night = form.cleaned_data['night']
+			phone = form.cleaned_data['phone']
+			recipients = ['kamelot.sapogin@gmail.com']
+			try:
+				send_mail('Подобрать тур.', 'Страна: ' + country + '\nДаты вылета: ' + date_date +
+                '\nНочей:' + night + '\nТелефон: ' + phone + '\nКласс отеля от: ' + star, 'kamelot.sapogin@gmail.com', recipients)
+			except BadHeaderError:
+				return HttpResponse('Invalid header found')
+			return render(request, 'pages/thanks.html')
+	else:
+		form = ContactForm_num4()
+	return render(request, 'pages/contact4.html', {'form': form})

@@ -3471,3 +3471,6 @@ html, body {
  -o-transform: scale(1.2);
  transform: scale(1.2);
 }
+#form-4 {
+  display: inline-block;
+}

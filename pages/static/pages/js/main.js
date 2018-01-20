@@ -1,4 +1,3 @@
-$(".telephonetext").mask("8(999) 999-9999");
 /**
  * @package   PickMeUp - jQuery datepicker plugin
  * @author    Nazar Mokrynskyi <nazar@mokrynskyi.com>
@@ -432,6 +431,7 @@ $(function() {
     };
 })(jQuery);
 
+jQuery(document).ready(function ($) {
 $('.TVCatNavButton, .TVOrderContinue').on('click', function() {
   $('.TVCatNav .TVCatNavActive').removeClass('TVCatNavActive');
   var activ_button_tab = $(this).classes()[2];
@@ -447,7 +447,13 @@ $('.TVCatNavButton, .TVOrderContinue').on('click', function() {
       $('.TVOrderContinue').removeClass('flow-disable');
   }
 });
-/*PARSER*/
-$(".main-header__currencies--right").load("http://127.0.0.1:8000/course");
 
-$("#cchrome").load("http://127.0.0.1:8000/contact");
+/*PARSER*/
+  $("#form-1").load("http://127.0.0.1:8000/contact-1");
+  $("#form-2").load("http://127.0.0.1:8000/contact-2");
+  $(".form-3").load("http://127.0.0.1:8000/contact-3");
+  $("#form-4").load("http://127.0.0.1:8000/contact-4");
+  $("#form-5").load("http://127.0.0.1:8000/contact-5");
+});
+
+$(".main-header__currencies--right").load("http://127.0.0.1:8000/course");
