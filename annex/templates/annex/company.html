@@ -1,0 +1,21 @@
+{% extends "annex/wrapper.html" %}
+{% load static %}
+{% block content %}
+{% include "annex/includes/all-menu.html" %}
+<div class="banner-bg --not_banner" id="top">
+{% for items in post_objects %}
+  <div class="with-company col-md-4">
+    <div class="col-xs-12">
+      <div class="banner-overlay"></div>
+      <div class="content-company">
+        <div style="background: url('{{items.background.url}}');" class="welcome-text">
+          <h2>{{items.name}}</h2>
+        </div>
+        <p>{{items.adress}}</p>
+        <a href="/annex/{{items.id}}">Загрузить страницу</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}
