@@ -1,0 +1,50 @@
+{% extends "annex/wrapper.html" %}
+{% load static %}
+{% block content %}
+<style>
+.page-section table thead tr th:hover {
+  cursor: default !important;
+}
+</style>
+{% include "annex/includes/post-menu.html" %}
+<div style="background: url({{factory.background.url}});" class="banner-bg" id="top">
+  <div class="banner-overlay"></div>
+    <a class="arrow-back" href="/"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+  <div class="welcome-text">
+    <h2>{{factory.name}}</h2>
+    <h5>{{factory.adress}}</h5>
+  </div>
+</div>
+<div id="button_down_menu"><i class="fa fa-caret-right" aria-hidden="true"></i></div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+  <div class="fluid-container">
+
+    <div class="content-wrapper">
+      <div id="HTMLtoPDF" class="page-section">
+        <h4 class="widget-title">Спецификации завода</h4>
+
+        <table id="example1" class="example228">
+          <thead>
+            <tr>
+              <th>Дата <i class="fa fa-sort" aria-hidden="true"></i></th>
+              <th>Наименование <i class="fa fa-sort" aria-hidden="true"></i></th>
+              <th>Ссылка</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for items in object.specification_set.all %}
+            <tr>
+              <td>{{items.date_push}}</td>
+              <td>{{items.name}} ({{items.etash}} этаж)</td>
+              <td><a href="materials/{{items.id}}/">Загрузить спецификацию</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

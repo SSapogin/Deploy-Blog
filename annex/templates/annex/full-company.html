@@ -8,6 +8,7 @@
   <div class="welcome-text">
     <h2>{{company.name}}</h2>
     <h5>{{company.adress}}</h5>
+    <h5>тел.: {{company.phone}}</h5>
   </div>
 </div>
 <div id="button_down_menu"><i class="fa fa-caret-right" aria-hidden="true"></i></div>
@@ -15,12 +16,31 @@
 <!-- MAIN CONTENT -->
 <div class="main-content">
   <div class="fluid-container">
+
     <div id="shipment" class="content-wrapper">
-       <a id="account" href="#">Предварительный расчет на строительство <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+      <a id="account" href="#">Предварительный расчет на строительство <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
       <div class="page-section">
-        ыфыввыа
+        <table id="example1" class="example228">
+          <thead>
+            <tr>
+              <th>Дата <i class="fa fa-sort" aria-hidden="true"></i></th>
+              <th>Наименование <i class="fa fa-sort" aria-hidden="true"></i></th>
+              <th>Ссылка</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for items in object.specification_set.all %}
+            <tr>
+              <td>{{items.date_push}}</td>
+              <td>{{items.name}} ({{items.etash}} этаж)</td>
+              <td><a href="materials/{{items.id}}/">Загрузить спецификацию</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
     </div>
+
     <div id="calculation" class="content-wrapper">
       <a id="tracking" href="#">Отслеживание материала для отгрузки на объект <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
       <!-- ABOUT -->
@@ -39,7 +59,7 @@
                 <b>Данные клиента:</b>
                 <input type="text" placeholder="ФИО клиента..." name="name">
                 <input class="telephonetext" type="text" placeholder="Телефон..." name="phone">
-                <input type="text" placeholder="E-mail..." name="email">
+                <input type="email" placeholder="E-mail..." name="email">
               </div>
               <div class="initial_data col-md-12">
                 <p>ИСХОДНЫЕ ДАННЫЕ</p>
@@ -59,7 +79,7 @@
                 </fieldset>
               </div>
               <div class="table col-md-12">
-                <table id="example">
+                <table id="example" class="example228">
                   <thead>
                     <tr>
                       <th>Наименование <i class="fa fa-sort" aria-hidden="true"></i></th>
@@ -80,11 +100,11 @@
                     </tr>
                     <tr class="totals">
                       <td colspan="4">Временные здания и сооружения (или предоставляет заказчик)</td>
-                      <td id="total-2" colspan="2"></td>
+                      <td id="total-2" colspan="2"><input pattern="^[ 0-9]+$" type="text" value="0"></td>
                     </tr>
                     <tr class="totals">
                       <td colspan="4">Непредвиденные затраты 2% (оговариваются при заключении договора)</td>
-                      <td id="total-3" colspan="2"></td>
+                      <td id="total-3" colspan="2"><input pattern="^[ 0-9]+$" type="text" value="0"></td>
                     </tr>
                     <tr class="totals">
                       <td colspan="4">ИТОГО</td>
@@ -99,7 +119,7 @@
             </div>
           </div>
           <div class="col-md-12">
-            <a class="button right"><i class="fa fa-calculator" aria-hidden="true"></i> Рассчитать</a>
+            <a id="calculate" class="button right"><i class="fa fa-calculator" aria-hidden="true"></i> Рассчитать</a>
             <a id="btn_download_jpg" class="button left" href="#"><i class="fa fa-download" aria-hidden="true"></i> Скачать .jpg</a>
             <a id="btn-Convert-Html2Image" class="button left"><i class="fa fa-file-image-o" aria-hidden="true"></i> screenshot</a>
             <a id="goto_print" class="button left"><i class="fa fa-print" aria-hidden="true"></i> распечатать</a>
@@ -113,27 +133,12 @@
       <div class="page-section" id="contact">
         <div class="row">
           <div class="col-md-12">
-            <h4 class="widget-title">PLACE TO TALK WITH ME</h4>
-            <p>Vestibulum ac iaculis erat, in semper dolor. Maecenas et lorem molestie, maximus justo dignissim, cursus nisl. Nullam at ante quis ex pharetra pulvinar quis id dolor. Integer lorem odio, euismod ut sem sit amet, imperdiet condimentum diam.</p>
+            <h4 class="widget-title">Отправить предварительный расчет</h4>
           </div>
         </div>
         <div class="row">
-          <form action="#" method="post" class="contact-form">
-            <fieldset class="col-md-4 col-sm-6">
-              <input type="text" id="your-name" placeholder="Your Name...">
-            </fieldset>
-            <fieldset class="col-md-4 col-sm-6">
-              <input type="email" id="email" placeholder="Your Email...">
-            </fieldset>
-            <fieldset class="col-md-4 col-sm-12">
-              <input type="text" id="your-subject" placeholder="Subject...">
-            </fieldset>
-            <fieldset class="col-md-12 col-sm-12">
-              <textarea name="message" id="message" cols="30" rows="6" placeholder="Leave your message..."></textarea>
-            </fieldset>
-            <fieldset class="col-md-12 col-sm-12">
-              <input type="submit" class="button big default" value="Send Message">
-            </fieldset>
+          <form action="/contact/" method="post" class="contact-form">
+            <div id="form-1"></div>
           </form>
         </div>
         <!-- .contact-form -->

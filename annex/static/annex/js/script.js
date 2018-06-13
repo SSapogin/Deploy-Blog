@@ -32,7 +32,7 @@ $("#button_down_menu").on('click', function () {
 
 //Поиск, сортировка
 $(document).ready(function(){
-    $('#example').DataTable({
+    $('.example228').DataTable({
         dom: 'Bfrtip',
     });
 });
@@ -74,7 +74,7 @@ $(document).ready(function(){
 	});
 });
 
-//HTML to PDF
+//Print
 $('#goto_print').on('click', function() {
   var printing_css="'<style media=print>h4.widget-title{text-align: center;font-size: 22px;} #example_filter, #example_info, .dataTables_paginate.paging_simple_numbers {display:none} .page-section .name-title {text-align: center;}</style>'";
   var html_to_print=printing_css+$('#HTMLtoPDF').html();
@@ -86,3 +86,40 @@ $('#goto_print').on('click', function() {
   win.print();
   $('iframe').remove();
 });
+
+//parse
+$("#form-1").load("http://127.0.0.1:8000/contact");
+
+//Calculator
+$('#calculate').on('click', function() {
+  var price = 0;
+  var exodus1 = 0;
+  $('#example tbody tr td:nth-child(4)').each(function(){
+    price = Number.parseFloat($(this).text()) * Number.parseFloat($(this).next().children().val());
+    $(this).next().next().text(price);
+    exodus1 = price + exodus1;
+  });
+  $('#example tfoot tr:first-child() td:last-child').text(exodus1);
+  $('#total-4').text(exodus1 + Number.parseFloat($('#total-2').children().val()) + Number.parseFloat($('#total-3').children().val()));
+});
+
+//specification
+var result1 = 0;
+var count1 = 0;
+var result2 = 0;
+var count2 = 0;
+var result3 = 0;
+var count3 = 0;
+for (var i = 1; i <= $('.one_specific_table tbody tr').length; i++) {
+  $('.one_specific_table tbody tr:nth-child('+i+') td:nth-child(1)').text(i);
+
+  count1 = $('.one_specific_table tbody tr:nth-child('+i+') td:nth-child(3)').text();
+  result1 = parseFloat(result1) + parseFloat(count1);
+  count2 = $('.one_specific_table tbody tr:nth-child('+i+') td:nth-child(7)').text();
+  result2 = parseFloat(result2) + parseFloat(count2);
+  count3 = $('.one_specific_table tbody tr:nth-child('+i+') td:nth-child(8)').text();
+  result3 = parseFloat(result3) + parseFloat(count3);
+}
+$('.one_specific_table tfoot tr td:nth-child(2)').text(parseFloat(result1));
+$('.one_specific_table tfoot tr td:nth-child(4)').text(parseFloat(result2));
+$('.one_specific_table tfoot tr td:nth-child(5)').text(parseFloat(result3));

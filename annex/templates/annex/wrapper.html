@@ -32,6 +32,7 @@
   </div>
 
   <input id="company" type="hidden" value="{{user.profile.associate}}">
+  <input id="factory" type="hidden" value="{{user.profile.factory_associate}}">
 
   <script src="{% static '/annex/js/jquery-3.3.1.min.js' %}"></script>
   <script src="{% static '/annex/js/min/plugins.min.js' %}"></script>
@@ -46,12 +47,22 @@
 
   <script type="text/javascript">
     company = $('#company').val();
-    active_company = $('.with-company .welcome-text h2').text();
-    $('.with-company .welcome-text h2').each(function(){
+    active_company = $('.only-company .welcome-text h2').text();
+    $('.only-company .welcome-text h2').each(function(){
       if (company == $(this).text()) {
-       $(this).parents('.with-company').addClass('display-active');
+       $(this).parents('.only-company').addClass('display-active');
      } else {
-       $(this).parents('.with-company').detach();
+       $(this).parents('.only-company').detach();
+     }
+    });
+
+    factory = $('#factory').val();
+    active_factory = $('.only-factory .welcome-text h2').text();
+    $('.only-factory .welcome-text h2').each(function(){
+      if (factory == $(this).text()) {
+       $(this).parents('.only-factory').addClass('display-active');
+     } else {
+       $(this).parents('.only-factory').detach();
      }
     });
   </script>

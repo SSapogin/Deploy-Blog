@@ -4,7 +4,7 @@
 {% include "annex/includes/all-menu.html" %}
 <div class="banner-bg --not_banner" id="top">
 {% for items in post_objects %}
-  <div class="with-company col-md-4">
+  <div class="with-company only-company col-md-4">
     <div class="col-xs-12">
       <div class="banner-overlay"></div>
       <div class="content-company">
@@ -12,7 +12,22 @@
           <h2>{{items.name}}</h2>
         </div>
         <p>{{items.adress}}</p>
-        <a href="/annex/{{items.id}}">Загрузить страницу</a>
+        <a href="/annex/{{items.id}}">Страница компании</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+{% for fac in factory_objects %}
+  <div class="with-company only-factory col-md-4">
+    <div class="col-xs-12">
+      <div class="banner-overlay"></div>
+      <div class="content-company">
+        <div style="background: url('{{fac.background.url}}');" class="welcome-text">
+          <h2>{{fac.name}}</h2>
+        </div>
+        <p>{{fac.adress}}</p>
+        <a href="/factory/{{fac.id}}/">Страница завода</a>
       </div>
     </div>
   </div>

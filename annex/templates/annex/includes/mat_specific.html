@@ -1,0 +1,15 @@
+{% block content %}
+{% load static %}
+{% for mats in object.materials_set.all %}
+<tr>
+  <td>1</td>
+  <td>{{mats.markirovka}}</td>
+  <td>{{mats.count}}</td>
+  <td>{{mats.width}}</td>
+  <td>{{mats.height}}</td>
+  <td>{{mats.weight}}</td>
+  <td>{{mats.amount}}</td>
+  <td>{{mats.area}}</td>
+</tr>
+{% endfor %}
+{% endblock %}
