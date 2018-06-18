@@ -1,0 +1,293 @@
+{% extends "annex/context.html" %}
+{% load static %}
+{% block content %}
+
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Новость
+							</h1>
+							<p class="text-white link-nav"><a href="/">Главная </a>  <span class="lnr lnr-arrow-right"></span><a href="blog-home.html">Новости </a> <span class="lnr lnr-arrow-right"></span> <a href="blog-single.html"> Новость</a></p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->
+
+			<!-- Start post-content Area -->
+			<section class="post-content-area single-post-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 posts-list">
+							<div class="single-post row">
+								<div class="col-lg-12">
+									<div class="feature-img">
+										<img class="img-fluid" src="{% static '/annex/img/blog/koleso-s-sharami.gif' %}" alt="">
+									</div>
+								</div>
+								<div class="col-lg-3  col-md-3 meta-details">
+									<ul class="tags">
+										<li><a href="#">Учёба,</a></li>
+										<li><a href="#">Техника,</a></li>
+										<li><a href="#">Политика,</a></li>
+										<li><a href="#">Общественная жизнь</a></li>
+									</ul>
+									<div class="user-details row">
+										<p class="user-name col-lg-12 col-md-12 col-6"><a href="#">Иван Иванов</a> <span class="lnr lnr-user"></span></p>
+										<p class="date col-lg-12 col-md-12 col-6"><a href="#">12 Декабря, 2018</a> <span class="lnr lnr-calendar-full"></span></p>
+										<p class="view col-lg-12 col-md-12 col-6"><a href="#">1.2M Просмотров</a> <span class="lnr lnr-eye"></span></p>
+										<p class="comments col-lg-12 col-md-12 col-6"><a href="#">06 Комментариев</a> <span class="lnr lnr-bubble"></span></p>
+										<ul class="social-links col-lg-12 col-md-12 col-6">
+											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+											<li><a href="#"><i class="fa fa-github"></i></a></li>
+											<li><a href="#"><i class="fa fa-behance"></i></a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-9 col-md-9">
+									<h3 class="mt-20 mb-20">Реферат по физике на тему: "Вечный двигатель"</h3>
+									<p class="excert">
+										Реферат подготовленный ученником 8 класса И. И. Ивановым.
+									</p>
+									<p>
+										Сорок три гектара территории, серые монолитные стены, обильно торчащая в небо арматура, краны и 600 рабочих. Через три года на этом месте, в закрытом городе Северске, в 25 километрах от Томска, начнёт работатьпервая в мире Perpetuum Mobile мощностью 300 мегаватт – атомная станция с замкнутым топливным циклом и расплавленным свинцом в качестве теплоносителя. Предприятие называется опытным, так как супертехнологии для него пока рассчитаны лишь на математических моделях. Однако, проверив их на действующем реакторе, наши атомщики получат референтную АЭС нового поколения, оторвавшись от конкурентов из Toshiba, Areva и прочих на десятилетия. Проект, который имеет говорящее название «Прорыв», обещает энергию без опасности и, главное, без добычи урана.
+									</p>
+								</div>
+								<div class="col-lg-12">
+									<div class="row mt-30 mb-30">
+										<div class="col-6">
+											<img class="img-fluid" src="{% static '/annex/img/blog/eternaldvig2.jpg' %}" alt="">
+										</div>
+										<div class="col-lg-12 mt-30">
+											<p>
+												Пара слов для тех, кто считает мирный атом пережитком. Потребность человечества в энергии удваивается каждые 20 лет. Сжигание нефти и угля приводит к ежегодному образованию порядка полумиллиарда тонн сернистого газа и окислов азота, то есть по 70 килограммов вредных веществ на каждого жителя земли. Использование АЭС эту проблему снимает. Мало того, запасы нефти ограничены, а энергоемкость одной тонны урана-235 примерно равна энергоемкости двух миллионов тонн бензина.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="navigation-area">
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
+										<div class="thumb">
+											<a href="#"><img class="img-fluid" src="{% static '/annex/img/blog/user1-info.png' %}" alt=""></a>
+										</div>
+										<div class="arrow">
+											<a href="#"><span class="lnr text-white lnr-arrow-left"></span></a>
+										</div>
+										<div class="detials">
+											<p>Пред. пост</p>
+											<a href="#"><h4>Космос</h4></a>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+										<div class="detials">
+											<p>След. пост</p>
+											<a href="#"><h4>Телескопы</h4></a>
+										</div>
+										<div class="arrow">
+											<a href="#"><span class="lnr text-white lnr-arrow-right"></span></a>
+										</div>
+										<div class="thumb">
+											<a href="#"><img class="img-fluid" src="{% static '/annex/img/blog/user2-info.jpeg' %}" alt=""></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="comments-area">
+								<h4>05 Комментариев</h4>
+								<div class="comment-list">
+                                    <div class="single-comment justify-content-between d-flex">
+                                        <div class="user justify-content-between d-flex">
+                                            <div class="thumb">
+                                                <img src="{% static '/annex/img/blog/user5-info.jpg' %}" alt="">
+                                            </div>
+                                            <div class="desc">
+                                                <h5><a href="#">Дмитрий Латунин</a></h5>
+                                                <p class="date">Декабрь 4, 2018 в 3:12  </p>
+                                                <p class="comment">
+                                                    Отлично!
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="reply-btn">
+                                               <a href="" class="btn-reply text-uppercase">Ответить</a>
+                                        </div>
+                                    </div>
+                                </div>
+								<div class="comment-list left-padding">
+                                    <div class="single-comment justify-content-between d-flex">
+                                        <div class="user justify-content-between d-flex">
+                                            <div class="thumb">
+                                                <img src="{% static '/annex/img/blog/blog writer-info.png' %}" alt="">
+                                            </div>
+                                            <div class="desc">
+                                                <h5><a href="#">Иван Иванов</a></h5>
+                                                <p class="date">Декабрь 4, 2018 в 5:12  </p>
+                                                <p class="comment">
+                                                    Спасибо
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="reply-btn">
+                                               <a href="" class="btn-reply text-uppercase">Ответить</a>
+                                        </div>
+                                    </div>
+                                </div>
+								<div class="comment-list left-padding">
+                                    <div class="single-comment justify-content-between d-flex">
+                                        <div class="user justify-content-between d-flex">
+                                            <div class="thumb">
+                                                <img src="{% static '/annex/img/blog/user4-info.jpg' %}" alt="">
+                                            </div>
+                                            <div class="desc">
+                                                <h5><a href="#">Пётр Жилаев</a></h5>
+                                                <p class="date">Декабрь 4, 2018 at 7:12  </p>
+                                                <p class="comment">
+                                                    Я бы сделал лучше)
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="reply-btn">
+                                               <a href="" class="btn-reply text-uppercase">Ответить</a>
+                                        </div>
+                                    </div>
+                                </div>
+							</div>
+							<div class="comment-form">
+								<h4>Оставьте комментарий</h4>
+								<form>
+									<div class="form-group form-inline">
+									  <div class="form-group col-lg-6 col-md-12 name">
+									    <input type="text" class="form-control" id="name" placeholder="Имя" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'">
+									  </div>
+									  <div class="form-group col-lg-6 col-md-12 email">
+									    <input type="email" class="form-control" id="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
+									  </div>
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control" id="Subject" placeholder="Тема" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'">
+									</div>
+									<div class="form-group">
+										<textarea class="form-control mb-10" rows="5" name="Messege" placeholder="Сообщение" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+									</div>
+									<a href="#" class="primary-btn text-uppercase">Отправить</a>
+								</form>
+							</div>
+						</div>
+						<div class="col-lg-4 sidebar-widgets">
+							<div class="widget-wrap">
+								<div class="single-sidebar-widget search-widget">
+									<form class="search-form" action="#">
+			                            <input placeholder="Поиск" name="search" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Posts'" >
+			                            <button type="submit"><i class="fa fa-search"></i></button>
+			                        </form>
+								</div>
+								<div class="single-sidebar-widget user-info-widget">
+									<img src="{% static '/annex/img/blog/blog writer-info.png' %}" alt="">
+									<a href="#"><h4>Иван Иванов</h4></a>
+									<p>
+										Автор блога
+									</p>
+									<ul class="social-links">
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+										<li><a href="#"><i class="fa fa-github"></i></a></li>
+										<li><a href="#"><i class="fa fa-behance"></i></a></li>
+									</ul>
+									<p>
+										Есть преступления хуже, чем сжигать книги. Например — не читать их.
+									</p>
+								</div>
+								<div class="single-sidebar-widget popular-post-widget">
+									<h4 class="popular-title">Популярные посты</h4>
+									<div class="popular-post-list">
+										<div class="single-post-list d-flex flex-row align-items-center">
+											<div class="thumb">
+												<img class="img-fluid" src="{% static '/annex/img/blog/schoollvoleyball1.jpg' %}" alt="">
+											</div>
+											<div class="details">
+												<a href="blog-single.html"><h6>Победа нашей команды!</h6></a>
+												<p>02 Часа назад</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="single-sidebar-widget ads-widget">
+									<a href="#"><img class="{% static '/annex/img-fluid" src="img/blog/ads-banner.jpg' %}" alt=""></a>
+								</div>
+								<div class="single-sidebar-widget post-category-widget">
+									<h4 class="category-title">Категории</h4>
+									<ul class="cat-list">
+										<li>
+											<a href="#" class="d-flex justify-content-between">
+												<p>Техника</p>
+												<p>37</p>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="d-flex justify-content-between">
+												<p>Общественная жизнь</p>
+												<p>24</p>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="d-flex justify-content-between">
+												<p>Учёба</p>
+												<p>59</p>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="d-flex justify-content-between">
+												<p>Исскуство</p>
+												<p>29</p>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="d-flex justify-content-between">
+												<p>Еда</p>
+												<p>15</p>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="d-flex justify-content-between">
+												<p>Архитектура</p>
+												<p>09</p>
+											</a>
+										</li>
+										<li>
+											<a href="#" class="d-flex justify-content-between">
+												<p>Приключение</p>
+												<p>44</p>
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div class="single-sidebar-widget tag-cloud-widget">
+									<h4 class="tagcloud-title">Тэги</h4>
+									<ul>
+										<li><a href="#">Техника</a></li>
+										<li><a href="#">Мода</a></li>
+										<li><a href="#">Архитектура</a></li>
+										<li><a href="#">Еда</a></li>
+										<li><a href="#">Технология</a></li>
+										<li><a href="#">Общественная жизнь</a></li>
+										<li><a href="#">Исскуство</a></li>
+										<li><a href="#">Приключение</a></li>
+										<li><a href="#">Еда</a></li>
+										<li><a href="#">Приключение</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End post-content Area -->
+
+{% endblock %}

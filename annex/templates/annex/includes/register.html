@@ -1,0 +1,105 @@
+{% extends "annex/context.html" %}
+{% load static %}
+{% block content %}
+
+    <!-- start banner Area -->
+    <section class="banner-area relative about-banner" id="home">
+      <div class="overlay overlay-bg"></div>
+      <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+          <div class="about-content col-lg-12">
+            <h1 class="text-white">
+              Личный кабинет
+            </h1>
+            <p class="text-white link-nav"><a href="index.html">Главная </a>  <span class="lnr lnr-arrow-right"></span>  <a href="contact.html"> Личный кабинет</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End banner Area -->
+
+    <!-- Start contact-page Area -->
+    <section class="contact-page-area section-gap">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="comment-form">
+              <h4>Информация о пользователе</h4>
+              <form>
+                <div class="form-group">
+                  <h4> Ведите Email: </h4>
+                  <div class="form-group col-lg-12 col-md-12 name">
+                    <input type="email" class="form-control" id="name" placeholder="E-mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Введите email'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <h4> Ведите телефон: </h4>
+                  <div class="form-group col-lg-12 col-md-12 name">
+                    <input type="email" class="form-control" id="phone" placeholder="+7(ххх)-ххх-хх-хх" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Введите телефон'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <h4> Ведите фамилию: </h4>
+                  <div class="form-group col-lg-12 col-md-12 name">
+                    <input type="email" class="form-control" id="l_name" placeholder="Иванов" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Введите фамилию'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <h4> Ведите имя: </h4>
+                  <div class="form-group col-lg-12 col-md-12 name">
+                    <input type="email" class="form-control" id="f_name" placeholder="Иван" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Введите имя'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <h4> Ведите отчество: </h4>
+                  <div class="form-group col-lg-12 col-md-12 name">
+                    <input type="email" class="form-control" id="p_name" placeholder="Иванович" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Введите отчество'">
+                  </div>
+                </div>
+                <div class="form-group">
+                    <h4> Введите дату рождения: </h4>
+                   <div class="form-group col-lg-12 col-md-12 name">
+                       <input placeholder="09/06/1997" type="text" id="datepicker">
+                  </div>
+                </div>
+                <div class="form-group">
+
+                </div>
+                <div class="form-group">
+                  <h4> Обо мне: </h4>
+                   <div class="form-group col-lg-12 col-md-12 name">
+                     <textarea class="form-control mb-10" rows="5" name="Messege" placeholder="Обо мне" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+                  </div>
+                </div>
+                <a href="contact.html" class="primary-btn text-uppercase">Зарегестрироваться</a>
+                <a href="index.html" class="primary-btn text-uppercase">Отменить</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End contact-page Area -->
+    <script>
+    $( function() {
+      $( "#datepicker" ).datepicker();
+      $('#fileupload').fileupload({
+         url: url,
+         dataType: 'json',
+         done: function (e, data) {
+             $.each(data.result.files, function (index, file) {
+                 $('<p/>').text(file.name).appendTo('#files');
+             });
+         },
+         progressall: function (e, data) {
+             var progress = parseInt(data.loaded / data.total * 100, 10);
+             $('#progress .progress-bar').css(
+                 'width',
+                 progress + '%'
+             );
+         }
+     }).prop('disabled', !$.support.fileInput)
+         .parent().addClass($.support.fileInput ? undefined : 'disabled');
+    } );
+    </script>
+  {% endblock %}

@@ -1,71 +1,343 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
-
+<html lang="zxx" class="no-js">
 <head>
   {% load static %}
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Timfort - Предварительный расчет на строительство</title>
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="{% static '/annex/fav.png' %}">
+  <!-- Meta Description -->
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{% static '/annex/css/normalize.css' %}">
-  <link rel="stylesheet" href="{% static '/annex/css/font-awesome.css' %}">
-  <link rel="stylesheet" href="{% static '/annex/css/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static '/annex/css/templatemo-style.css' %}">
-  <link rel="stylesheet" href="{% static '/annex/fonts/ru/roboto.css' %}">
-  <script src="{% static '/annex/js/vendor/modernizr-2.6.2.min.js' %}"></script>
-</head>
+  <!-- Meta Keyword -->
+  <meta name="keywords" content="">
+  <!-- meta character set -->
+  <meta charset="UTF-8">
+  <!-- Site Title -->
+  <title>Школа№38</title>
 
-<body id="body">
-  <!-- .sidebar-menu -->
-  {% block content %}
-  {% endblock %}
-  <div class="row" id="footer">
-    <div class="col-md-12 text-center">
-      <p class="copyright-text">Copyright &copy; 2018 Timfort</p>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="{% static '/annex/css/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/main.css' %}">
+  </head>
+  <body>
+    <header id="header" id="home">
+      <div class="header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-sm-6 col-8 header-top-left no-padding">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-4 header-top-right no-padding">
+            </div>
+          </div>
+        </div>
     </div>
-  </div>
+      <div class="container main-menu">
+        <div class="row align-items-center justify-content-between d-flex">
+          <div id="logo">
+            <a href="/"><img src="{% static '/annex/img/logo.jpg' %}" alt="" title="" /></a>
+          </div>
+          <nav id="nav-menu-container">
+            <ul class="nav-menu">
+              <li><a href="/">Главная</a></li>
+              <li><a href="/about/">О нас</a></li>
+              <li><a href="/events/">Мероприятия</a></li>
+              <li><a href="/gallery/">Галерея</a></li>
+              <li class="menu-has-children"><a href="">Блог</a>
+                <ul>
+                  <li><a href="/blog-home/">Новости</a></li>
+                  <li><a href="/blog-single/"> Новость</a></li>
+                </ul>
+              </li>
+              <li><a href="/signin/">Войти</a></li>
+              <li><a href="/register/">Регистрация</a></li>
+            </ul>
+          </nav><!-- #nav-menu-container -->
+        </div>
+      </div>
+    </header><!-- #header -->
 
-  <input id="company" type="hidden" value="{{user.profile.associate}}">
-  <input id="factory" type="hidden" value="{{user.profile.factory_associate}}">
+    <!-- start banner Area -->
+    <section class="banner-area relative" id="home">
+      <div class="overlay overlay-bg"></div>
+      <div class="container">
+        <div class="row fullscreen d-flex align-items-center justify-content-between">
+          <div class="banner-content col-lg-9 col-md-12">
+            <h1 class="text-uppercase">
+              Мы стремимся к лучшему обучению,
+                Ради лучшего мира
+            </h1>
+            <p class="pt-10 pb-10">
+              Адрес: г. Оренбург ул. Совхозная, 31
+            </p>
 
-  <script src="{% static '/annex/js/jquery-3.3.1.min.js' %}"></script>
-  <script src="{% static '/annex/js/min/plugins.min.js' %}"></script>
-  <script src="{% static '/annex/js/min/main.min.js' %}"></script>
-  <script src="{% static '/annex/js/html2canvas.js' %}"></script>
-  <script src="{% static '/annex/js/jquery.maskedinput.min.js' %}"></script>
-  <!-- Сортировка -->
-  <script src="{% static '/annex/js/sorting/jquery.dataTables.min.js' %}"></script>
-  <script src="{% static '/annex/js/sorting/jszip.min.js' %}"></script>
-  <!-- script -->
-  <script src="{% static '/annex/js/script.js' %}"></script>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End banner Area -->
 
-  <script type="text/javascript">
-    company = $('#company').val();
-    active_company = $('.only-company .welcome-text h2').text();
-    $('.only-company .welcome-text h2').each(function(){
-      if (company == $(this).text()) {
-       $(this).parents('.only-company').addClass('display-active');
-     } else {
-       $(this).parents('.only-company').detach();
-     }
-    });
+    <!-- Start feature Area -->
+    <section class="feature-area pb-120">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="single-feature">
+              <div class="title">
+                <h4>Учащемуся</h4>
+              </div>
+              <div class="desc-wrap">
+                <p>
+                  Информация для учащихся.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="single-feature">
+              <div class="title">
+                <h4>Школа №38</h4>
+              </div>
+              <div class="desc-wrap">
+                <p>
+                  Лучшая школа города.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="single-feature">
+              <div class="title">
+                <h4>Огромая библитека</h4>
+              </div>
+              <div class="desc-wrap">
+                <p>
+                  Если вам интересны книги, то эта страница для вас.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End feature Area -->
 
-    factory = $('#factory').val();
-    active_factory = $('.only-factory .welcome-text h2').text();
-    $('.only-factory .welcome-text h2').each(function(){
-      if (factory == $(this).text()) {
-       $(this).parents('.only-factory').addClass('display-active');
-     } else {
-       $(this).parents('.only-factory').detach();
-     }
-    });
-  </script>
-</body>
+    <!-- Start popular-course Area -->
+    <section class="popular-course-area section-gap">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="menu-content pb-70 col-lg-8">
+            <div class="title text-center">
+              <h1 class="mb-10">Наши новости</h1>
+              <p>Выбери интересующую.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="active-popular-carusel">
+            {% for mats in news_objects %}
+            <div class="single-popular-carusel">
+              <div class="thumb-wrap relative">
+                <div class="thumb relative">
+                  <div class="overlay overlay-bg"></div>
+                  <img class="img-fluid" src="{{mats.background.url}}" alt="">
+                </div>
+                <div class="meta d-flex justify-content-between">
+                  <p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
+                </div>
+              </div>
+              <div class="details">
+                <a href="#">
+                  <h4>
+                    {{mats.name}}
+                  </h4>
+                </a>
+                <p>
+                  {{mats.description}}
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End popular-course Area -->
 
+
+    <!-- Start search-course Area -->
+    <section class="search-course-area relative">
+      <div class="overlay overlay-bg"></div>
+      <div class="container">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-lg-6 col-md-6 search-course-left">
+            <h1 class="text-white">
+              Попробуй себя <br>
+              в своём деле!
+            </h1>
+            <p>
+            </p>
+            <div class="row details-content">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 search-course-right section-gap">
+            <form class="form-wrap" action="#">
+              <h4 class="text-white pb-20 text-center mb-30">Подбери для себя курсы</h4>
+              <input type="text" class="form-control" name="name" placeholder="ФИО" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Name'" >
+              <input type="phone" class="form-control" name="phone" placeholder="Номер" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Phone Number'" >
+              <input type="email" class="form-control" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address'" >
+              <div class="form-select" id="service-select">
+                <select>
+                  <option datd-display="">Выбрать курс</option>
+                  {% for mats in post_objects %}
+                    <option value="">{{mats.name}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <button class="primary-btn text-uppercase">Продолжить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End search-course Area -->
+
+
+    <!-- Start upcoming-event Area -->
+    <section class="upcoming-event-area section-gap">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="menu-content pb-70 col-lg-8">
+            <div class="title text-center">
+              <h1 class="mb-10">Ближайшие мероприятия школы</h1>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="active-upcoming-event-carusel">
+            {% for mat in all_event %}
+            <div class="single-carusel row align-items-center">
+              <div class="col-12 col-md-6 thumb">
+                <img class="img-fluid" src="{{mat.background.url}}" alt="">
+              </div>
+              <div class="detials col-12 col-md-6">
+                <p>{{mat.date_push}}</p>
+                <a href="#"><h4>{{mat.name}}</h4></a>
+                <p>
+                  {{mat.description}}
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End upcoming-event Area -->
+
+    <!-- Start review Area -->
+
+    <!-- End review Area -->
+
+    <!-- Start cta-one Area -->
+
+    <!-- End cta-one Area -->
+
+    <!-- Start blog Area -->
+    <section class="blog-area section-gap" id="blog">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="menu-content pb-70 col-lg-8">
+            <div class="title text-center">
+              <h1 class="mb-10">Пройдите курсы</h1>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          {% for mats in post_objects %}
+          <div class="col-lg-3 col-md-6 single-blog">
+            <div class="thumb">
+              <img class="img-fluid" src="{{mats.background.url}}" alt="">
+            </div>
+            <p class="meta">{{mats.cost}}</p>
+            <a>
+              <h5>{{mats.name}}</h5>
+            </a>
+            <p>
+              Ждём всех! Обучим лучше чем кто либо еще!
+            </p>
+            <a href="#" class="details-btn d-flex justify-content-center align-items-center"><span class="details">Подробнее</span><span class="lnr lnr-arrow-right"></span></a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- End blog Area -->
+
+    <!-- start footer Area -->
+    <footer class="footer-area section-gap">
+      <div class="container">
+        <div class="row">
+                <div class="thumb relative">
+                  <div class="overlay overlay-bg"></div>
+                  <img class="img-fluid" src="{% static '/annex/img/ogeh.jpg' %}" alt="">
+                </div>
+          <div class="thumb relative">
+                  <div class="overlay overlay-bg"></div>
+                  <img class="img-fluid" src="{% static '/annex/img/GU.jpg' %}" alt="">
+                </div>
+          <div class="thumb relative">
+                  <div class="overlay overlay-bg"></div>
+                  <img class="img-fluid" src="{% static '/annex/img/lib-ru.gif' %}" alt="">
+                </div>
+          <div class="thumb relative">
+                  <div class="overlay overlay-bg"></div>
+                  <img class="img-fluid" src="{% static '/annex/img/edu130x59.gif' %}" alt="">
+                </div>
+          <div class="col-lg-4  col-md-6 col-sm-6">
+
+                      <div class="info"></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom row align-items-center justify-content-between">
+
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End footer Area -->
+
+
+    <script src="{% static '/annex/js/vendor/jquery-2.2.4.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="{% static '/annex/js/vendor/bootstrap.min.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+      <script src="{% static '/annex/js/easing.min.js' %}"></script>
+    <script src="{% static '/annex/js/hoverIntent.js' %}"></script>
+    <script src="{% static '/annex/js/superfish.min.js' %}"></script>
+    <script src="{% static '/annex/js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static '/annex/js/jquery.magnific-popup.min.js' %}"></script>
+      <script src="{% static '/annex/js/jquery.tabs.min.js' %}"></script>
+    <script src="{% static '/annex/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static '/annex/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static '/annex/js/mail-script.js' %}"></script>
+    <script src="{% static '/annex/js/main.js' %}"></script>
+  </body>
 </html>

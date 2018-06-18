@@ -13,10 +13,7 @@ SECRET_KEY = '**1x5n=m2iyu-+648mnj&u%!bn(um5k8=@-uq!zg&&8(qz75k*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-'http://ssapogin.pythonanywhere.com',
-'ssapogin.pythonanywhere.com'
-]
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -107,8 +104,8 @@ USE_TZ = True
 
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    '/static/',
+    #os.path.join(BASE_DIR, "static"),
+    #'/static/',
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

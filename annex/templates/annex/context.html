@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+  {% load static %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="{% static '/annex/fav.png' %}">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta charset="UTF-8">
+  <title>Школа№38</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="{% static '/annex/css/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static '/annex/css/main.css' %}">
+  </head>
+  <body>
+    <header id="header" id="home">
+      <div class="header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-sm-6 col-8 header-top-left no-padding">
+              <ul>
+              </ul>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-4 header-top-right no-padding">
+            </div>
+          </div>
+        </div>
+    </div>
+      <div class="container main-menu">
+        <div class="row align-items-center justify-content-between d-flex">
+          <div id="logo">
+            <a href="/"><img src="{% static '/annex/img/logo.jpg' %}" alt="" title="" /></a>
+          </div>
+          <nav id="nav-menu-container">
+            <ul class="nav-menu">
+              <li><a href="/">Главная</a></li>
+              <li><a href="/about/">О нас</a></li>
+              <li><a href="/events/">Мероприятия</a></li>
+              <li><a href="/gallery/">Галерея</a></li>
+              <li class="menu-has-children"><a href="">Блог</a>
+                <ul>
+                  <li><a href="/blog-home/">Новости</a></li>
+                  <li><a href="/blog-single/"> Новость</a></li>
+                </ul>
+              </li>
+              <li><a href="/signin/">Войти</a></li>
+              <li><a href="/register/">Регистрация</a></li>
+            </ul>
+          </nav><!-- #nav-menu-container -->
+        </div>
+      </div>
+    </header><!-- #header -->
+
+    {% block content %}
+    {% endblock %}
+
+
+    <!-- start footer Area -->
+    <footer class="footer-area section-gap">
+      <div class="container">
+        <div class="row">
+                <div class="thumb relative">
+                  <div class="overlay overlay-bg"></div>
+                  <img class="img-fluid" src="{% static '/annex/img/ogeh.jpg' %}" alt="">
+                </div>
+          <div class="thumb relative">
+                  <div class="overlay overlay-bg"></div>
+                  <img class="img-fluid" src="{% static '/annex/img/GU.jpg' %}" alt="">
+                </div>
+          <div class="thumb relative">
+                  <div class="overlay overlay-bg"></div>
+                  <img class="img-fluid" src="{% static '/annex/img/lib-ru.gif' %}" alt="">
+                </div>
+          <div class="thumb relative">
+                  <div class="overlay overlay-bg"></div>
+                  <img class="img-fluid" src="{% static '/annex/img/edu130x59.gif' %}" alt="">
+                </div>
+          <div class="col-lg-4  col-md-6 col-sm-6">
+
+                      <div class="info"></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom row align-items-center justify-content-between">
+
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End footer Area -->
+
+    <script src="{% static '/annex/js/vendor/jquery-2.2.4.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="{% static '/annex/js/vendor/bootstrap.min.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+      <script src="{% static '/annex/js/easing.min.js' %}"></script>
+    <script src="{% static '/annex/js/hoverIntent.js' %}"></script>
+    <script src="{% static '/annex/js/superfish.min.js' %}"></script>
+    <script src="{% static '/annex/js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static '/annex/js/jquery.magnific-popup.min.js' %}"></script>
+      <script src="{% static '/annex/js/jquery.tabs.min.js' %}"></script>
+    <script src="{% static '/annex/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static '/annex/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static '/annex/js/mail-script.js' %}"></script>
+    <script src="{% static '/annex/js/main.js' %}"></script>
+  </body>
+</html>

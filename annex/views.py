@@ -1,7 +1,7 @@
 from django.shortcuts import render, render_to_response, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.conf import settings
-from annex.models import Work, Company, Specification, Materials, Factory
+from annex.models import Courses, EventAdmin, News, GalleryAdmin
 from django.contrib.auth.models import User
 from django.contrib import auth
 from annex.forms import *
@@ -10,13 +10,57 @@ def logout(request):
     auth.logout(request)
     return HttpResponseRedirect('/')
 
-def company(request):
-    all_post = Company.objects.all().order_by("name")
-    all_spetific = Specification.objects.all().order_by("date_push")
-    all_materials = Materials.objects.all()
-    all_factory = Factory.objects.all()
-    context = {"post_objects" : all_post, "specific_objects" : all_spetific, "materials_objects" : all_materials, "factory_objects" : all_factory}
-    return render(request, "annex/company.html", context)
+def courses(request):
+    all_post = Courses.objects.all().order_by("name")
+    all_event = EventAdmin.objects.all().order_by("name")
+    all_news = News.objects.all().order_by("name")
+    context = {"post_objects" : all_post, "news_objects" : all_news, "all_event" : all_event,}
+    return render(request, "annex/wrapper.html", context)
+
+def blogS(request):
+    all_post = Courses.objects.all().order_by("name")
+    context = {"post_objects" : all_post,}
+    return render(request, "annex/includes/blog-single.html", context)
+
+def blogH(request):
+    all_post = Courses.objects.all().order_by("name")
+    context = {"post_objects" : all_post,}
+    return render(request, "annex/includes/blog-home.html", context)
+
+def about(request):
+    all_post = Courses.objects.all().order_by("name")
+    context = {"post_objects" : all_post,}
+    return render(request, "annex/includes/about.html", context)
+
+def contact(request):
+    all_post = Courses.objects.all().order_by("name")
+    context = {"post_objects" : all_post,}
+    return render(request, "annex/includes/contact.html", context)
+
+def event(request):
+    all_post = Courses.objects.all().order_by("name")
+    context = {"post_objects" : all_post,}
+    return render(request, "annex/includes/event-details.html", context)
+
+def events(request):
+    all_post = Courses.objects.all().order_by("name")
+    context = {"post_objects" : all_post,}
+    return render(request, "annex/includes/events.html", context)
+
+def gallery(request):
+    all_post = GalleryAdmin.objects.all().order_by("name")
+    context = {"post_objects" : all_post,}
+    return render(request, "annex/includes/gallery.html", context)
+
+def register(request):
+    all_post = Courses.objects.all().order_by("name")
+    context = {"post_objects" : all_post,}
+    return render(request, "annex/includes/register.html", context)
+
+def signin(request):
+    all_post = Courses.objects.all().order_by("name")
+    context = {"post_objects" : all_post,}
+    return render(request, "annex/includes/signin.html", context)
 
 def contactView(request):
 	if request.method == 'POST':
